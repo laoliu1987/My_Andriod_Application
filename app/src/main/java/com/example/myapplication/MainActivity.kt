@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -16,9 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.first_layout)
         button1.setOnClickListener {
             Toast.makeText(this,"You clicked Button",Toast.LENGTH_SHORT).show()
-            val intent= Intent("com.example.myapplication.ACTION_START")
-            intent.addCategory("com.example.myapplication.MY_CATEGORY")
+            val data="hello SecondActivity"
+            val intent= Intent(this,MainSecondActivity::class.java)
+            intent.putExtra("extra_data",data)
             startActivity(intent)
+
         }
     }
 
